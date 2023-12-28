@@ -1,7 +1,7 @@
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 NAME = vector
-CFILES = __cvector_utils_.c __cvector_utils__.c
+CFILES = __cvector_utils_.c __cvector_utils__.c main.c
 
 SRCS = $(CFILES:.c=.o)
 
