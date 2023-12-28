@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 07:43:55 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/12/28 09:17:51 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/12/28 09:32:34 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ size_t		__size_v(t_vector *vector);
 void		__print_v(t_vector *vector);
 void		__copy_v(t_vector *old_vector, t_vector *new_vector, size_t size);
 void		*__push_v(t_vector **vector, void *value, size_t size);
-void		*__get_value(t_vector *vector, size_t index);
+void		*__get_v(t_vector *vector, size_t index);
 
 #endif
