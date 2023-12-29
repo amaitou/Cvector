@@ -2,7 +2,7 @@
 
 I have been struggling with arrays over the past 2 years of using the `C language`, as well as, I have always wondered why there are no dynamic arrays in `C language` like those in C++ language (`Vectors` for instance). <br />
 That's why I have decided to create a `generic array` and simulate the vectors' behavior in C using `void pointers`.
-So in this project, I made a generic array with dynamic resizing that you can use in your code without even taking care of leaks and resizing your array each time you recognize that your array is full of elements and you cannot pass the reserved for the memory.
+So in this project, I made a generic array with dynamic resizing that you can use in your code without even taking care of leaks and resizing your array each time you recognize that your array is full of elements and you cannot pass the reserved memory.
 
 ---
 
