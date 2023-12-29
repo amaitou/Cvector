@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 06:06:31 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/12/28 09:32:44 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/12/29 01:58:50 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ t_vector	*__create_v(void)
 	return (__v);
 }
 
-void	__copy_v(t_vector *old_vector, t_vector *new_vector, size_t size)
+int	__copy_v(t_vector *old_vector, t_vector *new_vector, size_t size)
 {
 	size_t	i;
 
@@ -36,35 +36,38 @@ void	__copy_v(t_vector *old_vector, t_vector *new_vector, size_t size)
 	{
 		new_vector->vector[i] = (void *)malloc(size);
 		if (!new_vector->vector[i])
-			return ;
+			return (1);
 		memcpy(new_vector->vector[i], old_vector->vector[i], size);
 		++i;
 	}
+	return (0);
 }
 
-void	*__push_v(t_vector **vector, void *value, size_t size)
+int	__push_v(t_vector **vector, void *value, size_t size)
 {
 	t_vector	*__v;
 
 	__v = (t_vector *)malloc(sizeof(t_vector));
 	if (!__v)
-		return (NULL);
+		return (1);
 	if ((*vector)->size + 1 == (*vector)->capacity)
 	{
 		__v->size = (*vector)->size;
 		__v->capacity = (*vector)->capacity * 2;
 		__v->vector = (void **)malloc(sizeof(void *) * __v->capacity);
 		if (!__v)
-			return (NULL);
-		__copy_v(*vector, __v, size);
-		__free_v(*vector);
-		*vector = __v;
+			return (1);
+		if (__copy_v(*vector, __v, size))
+		{
+			__free_v(*vector);
+			*vector = __v;
+		}
 	}
 	else
 		free(__v);
 	(*vector)->vector[(*vector)->size] = value;
 	(*vector)->size++;
-	return ((void *)1);
+	return (0);
 }
 
 void	*__get_v(t_vector *vector, size_t index)
@@ -75,4 +78,21 @@ void	*__get_v(t_vector *vector, size_t index)
 		return (NULL);
 	__value = vector->vector[index];
 	return (__value);
+}
+
+int	__pop_v(t_vector *vector)
+{
+	size_t	__last;
+
+	__last = vector->size - 1;
+	if (__empty_v(vector))
+		return (1);
+	if (__last >= 0)
+	{
+		free(vector->vector[__last]);
+		vector->vector[__last] = NULL;
+		vector->size--;
+		return (0);
+	}
+	return (1);
 }
