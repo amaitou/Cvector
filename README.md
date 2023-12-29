@@ -236,3 +236,58 @@ int main(void)
 }
 ```
 The main function begins by allocating memory for three t_struct elements - first_element, second_element, and third_element. These structures represent data entities with integer, float, and string members. Subsequently, a dynamic array, referred to as a vector, is created using the __create_v function from the "_cvector.h" header. This dynamic array is designed to store elements of variable size. The function then utilizes the __push_v function to insert each of the previously allocated t_struct elements into the vector. After obtaining the starting iterator with __begin_v, the main loop iterates through the vector, dereferencing the iterator and printing the values of each member in the t_struct elements. The loop continues until the iterator reaches the end of the vector, which is determined by the __end_v function. Finally, the memory associated with the vector is deallocated using the __free_v function, ensuring proper cleanup and preventing memory leaks. This main function serves as a practical example of using the provided vector functions for dynamic array management, including creation, insertion, iteration, and cleanup.
+
+# Generics in c
+
+In C, unlike some higher-level programming languages, there is no built-in support for generics. Generics allow you to write code that works with different data types without specifying the type explicitly. However, there are certain techniques and patterns in C that can be used to achieve a level of generic programming. which are :
+
+- `Void Pointers (void*)`
+	- One common technique is to use void pointers to create generic functions or data structures. This allows you to pass or store pointers to data of any type. However, this approach sacrifices type safety, as you need to cast the void pointers back to the correct type when using them.
+---
+
+- `Macro-based Generics`
+	- C macros can be used to create generic code. By using macros and preprocessor directives, you can write code that works with different types. This approach, while powerful, can lead to less readable and more error-prone 
+
+---
+
+- `Code Duplication`
+	- Another approach is to duplicate code for each data type. This involves creating separate functions or data structures for each type you want to work with. While straightforward, it can lead to code redundancy and maintenance challenges.
+
+But since i love manipulating pointers, I have decided to build this project using the power of void pointer since they are more flexible and i found that they can fit my requirements (I hate casting anyway). <br />
+
+- ### what is void pointers and how would you use them ?
+
+	- In C, a void pointer, denoted as void*, is a special pointer type that is used to represent a memory address without specifying the type of data it points to. It provides a level of abstraction by allowing a single pointer type to accommodate addresses of any data type. This versatility makes void* useful in scenarios where the type of data being pointed to is not known or needs to be determined at runtime. However, it comes with the trade-off of losing compile-time type safety, as explicit type information is not available.
+
+		For example, you might use a void* to create generic functions or data structures that can work with different types. When using a void*, it is common practice to cast it to the appropriate type before dereferencing or manipulating the data it points to. While void* provides flexibility, developers need to exercise caution to ensure proper type casting and avoid potential runtime errors.
+
+> "Void pointers in C are like keys to a universal data kingdom. With great power comes great responsibility - wield them wisely, and your code will be versatile; misuse them, and you might find yourself in the wild west of undefined behavior."
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+// Function to swap two integers using void pointers
+void swapIntegers(void *a, void *b)
+{
+    int temp = *((int *)a);
+    *((int *)a) = *((int *)b);
+    *((int *)b) = temp;
+}
+
+int main()
+{
+	int num1;
+	int num2;
+
+    num1 = 5
+	num2 = 10;
+    printf("Before swap: num1 = %d, num2 = %d\n", num1, num2);
+    swapIntegers(&num1, &num2);
+    printf("After swap: num1 = %d, num2 = %d\n", num1, num2);
+    return (EXIT_SUCCESS);
+}
+
+```
+
+> Feel free to report any sort of bugs or you might one to contribute, it would be my pleasure to be a part of this project
