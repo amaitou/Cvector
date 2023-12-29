@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 06:06:31 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/12/29 08:55:31 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/12/29 12:10:05 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ t_vector	*__create_v(void)
 	return (__v);
 }
 
-int	__copy_v(t_vector *old_vector, t_vector *new_vector, size_t size)
+static int	__copy_v(t_vector *old_vector, t_vector *new_vector, size_t size)
 {
 	size_t	i;
 
