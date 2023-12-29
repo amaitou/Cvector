@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 02:31:28 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/12/29 04:32:28 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/12/29 04:53:21 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,12 @@ t_vector	*__allocate_v(size_t size)
 size_t	__capacity_v(t_vector *vector)
 {
 	return (vector->capacity);
+}
+
+void	**__begin_v(t_vector *vector)
+{
+	void	**__begin;
+
+	__begin = vector->vector + 0x00;
+	return (__begin);
 }
