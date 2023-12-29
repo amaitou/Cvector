@@ -14,9 +14,6 @@
 
 int	__clear_v(t_vector *vector)
 {
-	size_t	i;
-
-	i = 0;
 	if (__empty_v(vector))
 		return (1);
 	while (!__empty_v(vector))

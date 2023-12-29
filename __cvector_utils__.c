@@ -19,9 +19,6 @@ size_t	__size_v(t_vector *vector)
 
 void	__free_v(t_vector *vector)
 {
-	size_t	i;
-
-	i = 0;
 	__clear_v(vector);
 	free(vector->vector);
 	free(vector);
