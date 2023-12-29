@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 06:06:31 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/12/29 06:16:22 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/12/29 08:55:31 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@ t_vector	*__create_v(void)
 
 	__v = (t_vector *)malloc(sizeof(t_vector));
 	if (!__v)
-		return (NULL);
+		return ((void *)0x00);
 	__v->capacity = 5;
 	__v->size = 0;
 	__v->vector = (void **)malloc(sizeof(void *) * __v->capacity);
 	memset(__v->vector, 0, __v->capacity);
-	__v->vector[__v->size] = NULL;
+	__v->vector[__v->size] = (void *)0x00;
 	if (!__v->vector)
-		return (NULL);
+		return ((void *)0x00);
 	return (__v);
 }
 
@@ -79,7 +79,7 @@ void	*__get_v(t_vector *vector, size_t index)
 	void	*__value;
 
 	if (index >= __size_v(vector))
-		return (NULL);
+		return ((void *)0x00);
 	__value = vector->vector[index];
 	return (__value);
 }
@@ -92,7 +92,7 @@ int	__pop_v(t_vector *vector)
 	if (!__empty_v(vector))
 	{
 		free(vector->vector[__last]);
-		vector->vector[__last] = NULL;
+		vector->vector[__last] = (void *)0x0;
 		vector->size--;
 		return (0);
 	}
