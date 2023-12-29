@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 06:06:31 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/12/29 03:17:39 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/12/29 03:37:39 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int	__copy_v(t_vector *old_vector, t_vector *new_vector, size_t size)
 		new_vector->vector[i] = (void *)malloc(size);
 		if (!new_vector->vector[i])
 			return (1);
+		memset(new_vector->vector[i], 0, size);
 		memcpy(new_vector->vector[i], old_vector->vector[i], size);
 		++i;
 	}
