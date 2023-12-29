@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 06:06:31 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/12/29 01:58:50 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/12/29 02:21:19 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,9 +85,7 @@ int	__pop_v(t_vector *vector)
 	size_t	__last;
 
 	__last = vector->size - 1;
-	if (__empty_v(vector))
-		return (1);
-	if (__last >= 0)
+	if (!__empty_v(vector))
 	{
 		free(vector->vector[__last]);
 		vector->vector[__last] = NULL;
