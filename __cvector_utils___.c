@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 02:31:28 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/12/29 06:25:20 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/12/29 06:38:18 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,8 @@ void	**__begin_v(t_vector *vector)
 
 void	**__end_v(t_vector *vector)
 {
-	return (vector->vector[__size_v(vector)]);
+	void	**__end;
+
+	__end = vector->vector[__size_v(vector)];
+	return (__end);
 }
