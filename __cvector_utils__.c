@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 06:05:57 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/12/29 01:20:51 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/12/29 02:28:06 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,18 @@ void	__free_v(t_vector *vector)
 int	__empty_v(t_vector *vector)
 {
 	return (!vector->size);
+}
+
+void	*__front_v(t_vector *vector)
+{
+	if (!__empty_v(vector))
+		return (vector->vector[0]);
+	return (NULL);
+}
+
+void	*__back_v(t_vector *vector)
+{
+	if (!__empty_v(vector))
+		return (vector->vector[__size_v(vector) - 1]);
+	return (NULL);
 }
