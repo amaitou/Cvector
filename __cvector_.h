@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 07:43:55 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/12/29 02:33:55 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/12/29 04:32:25 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_vector
 }	t_vector;
 
 t_vector	*__create_v(void);
+t_vector	*__allocate_v(size_t size_t);
 int			__empty_v(t_vector *vector);
 void		__free_v(t_vector *vector);
 size_t		__size_v(t_vector *vector);
@@ -35,5 +36,6 @@ int			__pop_v(t_vector *vector);
 void		*__front_v(t_vector *vector);
 void		*__back_v(t_vector *vector);
 int			__clear_v(t_vector *vector);
+size_t		__capacity_v(t_vector *vector);
 
 #endif
