@@ -8,7 +8,7 @@ So in this project, I made a generic array with dynamic resizing that you can us
 
 # Methods
 
-Like in vectors I have implemented some Functions that would make your life easier when using `Cvector` in ur code.
+Like in vectors I have implemented some Functions that would make your life easier when using `Cvector` in your code.
 
 - __create_v
 
