@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 06:06:31 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/12/29 03:37:39 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/12/29 03:39:52 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ t_vector	*__create_v(void)
 	__v->capacity = 5;
 	__v->size = 0;
 	__v->vector = (void **)malloc(sizeof(void *) * __v->capacity);
+	memset(__v->vector, 0, __v->capacity);
 	if (!__v->vector)
 		return (NULL);
 	return (__v);
