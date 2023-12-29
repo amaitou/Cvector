@@ -6,7 +6,7 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 06:06:31 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/12/29 02:21:19 by amait-ou         ###   ########.fr       */
+/*   Updated: 2023/12/29 03:17:39 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,9 @@ int	__push_v(t_vector **vector, void *value, size_t size)
 		__v->size = (*vector)->size;
 		__v->capacity = (*vector)->capacity * 2;
 		__v->vector = (void **)malloc(sizeof(void *) * __v->capacity);
-		if (!__v)
+		if (!__v->vector)
 			return (1);
-		if (__copy_v(*vector, __v, size))
+		if (!__copy_v(*vector, __v, size))
 		{
 			__free_v(*vector);
 			*vector = __v;
