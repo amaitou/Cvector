@@ -6,14 +6,13 @@
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 07:43:55 by amait-ou          #+#    #+#             */
-/*   Updated: 2024/01/07 18:31:30 by amait-ou         ###   ########.fr       */
+/*   Updated: 2024/01/07 19:04:38 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CVECTOR_V_H
 # define CVECTOR_V_H
 
-# include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
 
