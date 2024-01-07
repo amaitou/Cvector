@@ -1,25 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   __cvector_utils___.c                               :+:      :+:    :+:   */
+/*   allocate_v.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/29 02:31:28 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/12/29 09:18:27 by amait-ou         ###   ########.fr       */
+/*   Created: 2024/01/07 18:27:08 by amait-ou          #+#    #+#             */
+/*   Updated: 2024/01/07 18:32:13 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "__cvector_.h"
-
-int	__clear_v(t_vector *vector)
-{
-	if (__empty_v(vector))
-		return (1);
-	while (!__empty_v(vector))
-		__pop_v(vector);
-	return (0);
-}
+#include "../includes/cvector_v.h"
 
 t_vector	*__allocate_v(size_t size)
 {
@@ -35,25 +26,4 @@ t_vector	*__allocate_v(size_t size)
 	if (!__v->vector)
 		return ((void *)0x00);
 	return (__v);
-}
-
-size_t	__capacity_v(t_vector *vector)
-{
-	return (vector->capacity);
-}
-
-void	**__begin_v(t_vector *vector)
-{
-	void	**__begin;
-
-	__begin = vector->vector + 0x00;
-	return (__begin);
-}
-
-void	**__end_v(t_vector *vector)
-{
-	void	**__end;
-
-	__end = vector->vector + __size_v(vector);
-	return (__end);
 }

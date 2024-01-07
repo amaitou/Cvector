@@ -1,33 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   __cvector_utils_.c                                 :+:      :+:    :+:   */
+/*   push_v.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/28 06:06:31 by amait-ou          #+#    #+#             */
-/*   Updated: 2023/12/29 12:10:05 by amait-ou         ###   ########.fr       */
+/*   Created: 2024/01/07 18:22:35 by amait-ou          #+#    #+#             */
+/*   Updated: 2024/01/07 18:33:18 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "__cvector_.h"
-
-t_vector	*__create_v(void)
-{
-	t_vector	*__v;
-
-	__v = (t_vector *)malloc(sizeof(t_vector));
-	if (!__v)
-		return ((void *)0x00);
-	__v->capacity = 5;
-	__v->size = 0;
-	__v->vector = (void **)malloc(sizeof(void *) * __v->capacity);
-	memset(__v->vector, 0, __v->capacity);
-	__v->vector[__v->size] = (void *)0x00;
-	if (!__v->vector)
-		return ((void *)0x00);
-	return (__v);
-}
+#include "../includes/cvector_v.h"
 
 static int	__copy_v(t_vector *old_vector, t_vector *new_vector, size_t size)
 {
@@ -72,29 +55,4 @@ int	__push_v(t_vector **vector, void *value, size_t size)
 	(*vector)->size++;
 	(*vector)->vector[(*vector)->size] = NULL;
 	return (0);
-}
-
-void	*__get_v(t_vector *vector, size_t index)
-{
-	void	*__value;
-
-	if (index >= __size_v(vector))
-		return ((void *)0x00);
-	__value = vector->vector[index];
-	return (__value);
-}
-
-int	__pop_v(t_vector *vector)
-{
-	size_t	__last;
-
-	__last = vector->size - 1;
-	if (!__empty_v(vector))
-	{
-		free(vector->vector[__last]);
-		vector->vector[__last] = (void *)0x0;
-		vector->size--;
-		return (0);
-	}
-	return (1);
 }
