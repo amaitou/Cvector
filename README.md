@@ -291,3 +291,12 @@ int main()
 ```
 
 > Feel free to report any sort of bugs or you might one to contribute, it would be my pleasure to be a part of this project
+
+---
+
+### **Contact Me**
+
+* [Twitter][_1]
+
+[_1]: https://twitter.com/amait0u
+
