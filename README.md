@@ -1,3 +1,8 @@
+
+---
+![1_sOZk7m0RkOWgKwK4eF6Kpg](https://github.com/amaitou/Cvector/assets/49293816/3d692815-76eb-44d8-b8d3-121d37e1c0f5)
+
+---
 # Cvector
 
 I have been struggling with arrays over the past 2 years of using the `C language`, as well as, I have always wondered why there are no dynamic arrays in `C language` like those in C++ language (`Vectors` for instance). <br />
