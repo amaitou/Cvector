@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   empty_v.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 18:25:17 by amait-ou          #+#    #+#             */
-/*   Updated: 2024/01/07 18:32:56 by amait-ou         ###   ########.fr       */
+/*   Updated: 2025/01/25 11:00:43 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cvector_v.h"
 
-int	__empty_v(t_vector *vector)
+int	empty_v(t_vector *vector)
 {
 	return (!vector->size);
 }

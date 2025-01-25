@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   front_v.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 18:25:37 by amait-ou          #+#    #+#             */
-/*   Updated: 2024/01/07 18:33:07 by amait-ou         ###   ########.fr       */
+/*   Updated: 2025/01/25 11:01:03 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cvector_v.h"
 
-void	*__front_v(t_vector *vector)
+void	*front_v(t_vector *vector)
 {
-	if (!__empty_v(vector))
+	if (!empty_v(vector))
 		return (vector->vector[0]);
 	return ((void *)0x00);
 }

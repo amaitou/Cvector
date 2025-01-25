@@ -3,24 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   pop_v.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 18:23:52 by amait-ou          #+#    #+#             */
-/*   Updated: 2024/01/07 18:33:15 by amait-ou         ###   ########.fr       */
+/*   Updated: 2025/01/25 11:01:18 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cvector_v.h"
 
-int	__pop_v(t_vector *vector)
+int	pop_v(t_vector *vector)
 {
-	size_t	__last;
+	size_t	last;
 
-	__last = vector->size - 1;
-	if (!__empty_v(vector))
+	last = vector->size - 1;
+	if (!empty_v(vector))
 	{
-		free(vector->vector[__last]);
-		vector->vector[__last] = (void *)0x0;
+		free(vector->vector[last]);
+		vector->vector[last] = (void *)0x0;
 		vector->size--;
 		return (0);
 	}

@@ -3,28 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   create_v.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 18:22:06 by amait-ou          #+#    #+#             */
-/*   Updated: 2024/01/07 18:32:53 by amait-ou         ###   ########.fr       */
+/*   Updated: 2025/01/25 11:00:36 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cvector_v.h"
 
-t_vector	*__create_v(void)
+t_vector	*create_v(void)
 {
-	t_vector	*__v;
+	t_vector	*v;
 
-	__v = (t_vector *)malloc(sizeof(t_vector));
-	if (!__v)
+	v = (t_vector *)malloc(sizeof(t_vector));
+	if (!v)
 		return ((void *)0x00);
-	__v->capacity = 5;
-	__v->size = 0;
-	__v->vector = (void **)malloc(sizeof(void *) * __v->capacity);
-	memset(__v->vector, 0, __v->capacity);
-	__v->vector[__v->size] = (void *)0x00;
-	if (!__v->vector)
+	v->capacity = 5;
+	v->size = 0;
+	v->vector = (void **)malloc(sizeof(void *) * v->capacity);
+	memset(v->vector, 0, v->capacity);
+	v->vector[v->size] = (void *)0x00;
+	if (!v->vector)
 		return ((void *)0x00);
-	return (__v);
+	return (v);
 }

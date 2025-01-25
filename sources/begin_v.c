@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   begin_v.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 18:27:43 by amait-ou          #+#    #+#             */
-/*   Updated: 2024/01/07 18:32:38 by amait-ou         ###   ########.fr       */
+/*   Updated: 2025/01/25 10:59:58 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cvector_v.h"
 
-void	**__begin_v(t_vector *vector)
+void	**begin_v(t_vector *vector)
 {
-	void	**__begin;
+	void	**begin;
 
-	__begin = vector->vector + 0x00;
-	return (__begin);
+	begin = vector->vector + 0x00;
+	return (begin);
 }

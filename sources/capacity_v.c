@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   capacity_v.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 18:27:28 by amait-ou          #+#    #+#             */
-/*   Updated: 2024/01/07 18:32:45 by amait-ou         ###   ########.fr       */
+/*   Updated: 2025/01/25 11:00:20 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cvector_v.h"
 
-size_t	__capacity_v(t_vector *vector)
+size_t	capacity_v(t_vector *vector)
 {
 	return (vector->capacity);
 }

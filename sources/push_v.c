@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   push_v.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 18:22:35 by amait-ou          #+#    #+#             */
-/*   Updated: 2024/01/07 18:33:18 by amait-ou         ###   ########.fr       */
+/*   Updated: 2025/01/25 11:01:25 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cvector_v.h"
 
-static int	__copy_v(t_vector *old_vector, t_vector *new_vector, size_t size)
+static int	copy_v(t_vector *old_vector, t_vector *new_vector, size_t size)
 {
 	size_t	i;
 
 	i = 0;
-	while (i < __size_v(old_vector))
+	while (i < size_v(old_vector))
 	{
 		new_vector->vector[i] = (void *)malloc(size);
 		if (!new_vector->vector[i])
@@ -29,28 +29,28 @@ static int	__copy_v(t_vector *old_vector, t_vector *new_vector, size_t size)
 	return (0);
 }
 
-int	__push_v(t_vector **vector, void *value, size_t size)
+int	push_v(t_vector **vector, void *value, size_t size)
 {
-	t_vector	*__v;
+	t_vector	*v;
 
-	__v = (t_vector *)malloc(sizeof(t_vector));
-	if (!__v)
+	v = (t_vector *)malloc(sizeof(t_vector));
+	if (!v)
 		return (1);
 	if ((*vector)->size + 1 == (*vector)->capacity)
 	{
-		__v->size = (*vector)->size;
-		__v->capacity = (*vector)->capacity * 2;
-		__v->vector = (void **)malloc(sizeof(void *) * __v->capacity);
-		if (!__v->vector)
+		v->size = (*vector)->size;
+		v->capacity = (*vector)->capacity * 2;
+		v->vector = (void **)malloc(sizeof(void *) * v->capacity);
+		if (!v->vector)
 			return (1);
-		if (!__copy_v(*vector, __v, size))
+		if (!copy_v(*vector, v, size))
 		{
-			__free_v(*vector);
-			*vector = __v;
+			free_v(*vector);
+			*vector = v;
 		}
 	}
 	else
-		free(__v);
+		free(v);
 	(*vector)->vector[(*vector)->size] = value;
 	(*vector)->size++;
 	(*vector)->vector[(*vector)->size] = NULL;

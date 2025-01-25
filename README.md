@@ -15,123 +15,123 @@ So in this project, I made a generic array with dynamic resizing that you can us
 
 Like in vectors I have implemented some Functions that would make your life easier when using `Cvector` in your code.
 
-- __create_v
+- create_v
 
 	```c
-	t_vector	*__create_v(void);
+	t_vector	*create_v(void);
 	```
-	The `__create_v` function is designed to facilitate the dynamic creation and initialization of a resizable array, or vector, as represented by the t_vector structure. This function begins by allocating memory for the structure and the associated data array. Robust error handling ensures that if memory allocation fails at any point, the function returns a null pointer. The vector is then initialized with a default capacity of 5 and a size of 0. Subsequently, memory is allocated for the actual data array within the vector, with additional error checks. The function utilizes memset to initialize the data array, setting all elements to NULL. Upon successful completion, the function returns a pointer to the initialized t_vector structure, providing a convenient and reliable mechanism for dynamically managing resizable arrays in a C program.
+	The `create_v` function is designed to facilitate the dynamic creation and initialization of a resizable array, or vector, as represented by the t_vector structure. This function begins by allocating memory for the structure and the associated data array. Robust error handling ensures that if memory allocation fails at any point, the function returns a null pointer. The vector is then initialized with a default capacity of 5 and a size of 0. Subsequently, memory is allocated for the actual data array within the vector, with additional error checks. The function utilizes memset to initialize the data array, setting all elements to NULL. Upon successful completion, the function returns a pointer to the initialized t_vector structure, providing a convenient and reliable mechanism for dynamically managing resizable arrays in a C program.
 
 
-- __allocate_v
+- allocate_v
 
 	```c
-	t_vector	*__allocate_v(size_t size_t);
+	t_vector	*allocate_v(size_t size_t);
 	```
 
-	The `__allocate_v` function is designed to dynamically allocate and initialize a resizable array, represented by the t_vector structure, with a specified initial size. The function begins by allocating memory for the t_vector structure, checking for allocation errors and returning a null pointer if encountered. The capacity of the vector is then determined based on the provided size, with an additional half of that size added. This ensures some initial flexibility for potential growth. The vector is initialized with a size of 0, and memory is allocated for the data array within the vector. The data array is then initialized using memset to set all elements to NULL. If any memory allocation fails during this process, the function returns a null pointer. Finally, the function returns a pointer to the initialized t_vector structure, providing a convenient means to create and set up a dynamic array with a specified initial size in C programs.
+	The `allocate_v` function is designed to dynamically allocate and initialize a resizable array, represented by the t_vector structure, with a specified initial size. The function begins by allocating memory for the t_vector structure, checking for allocation errors and returning a null pointer if encountered. The capacity of the vector is then determined based on the provided size, with an additional half of that size added. This ensures some initial flexibility for potential growth. The vector is initialized with a size of 0, and memory is allocated for the data array within the vector. The data array is then initialized using memset to set all elements to NULL. If any memory allocation fails during this process, the function returns a null pointer. Finally, the function returns a pointer to the initialized t_vector structure, providing a convenient means to create and set up a dynamic array with a specified initial size in C programs.
 
 	---
 
-- __begin_v
+- begin_v
 
 	```c
-	void		**__begin_v(t_vector *vector);
+	void		**begin_v(t_vector *vector);
 	```
-	The `__begin_v` function provides a simple and direct means to obtain a pointer to the beginning of the data array within a t_vector structure. Given a t_vector instance as an argument, the function calculates the starting address of the data array using pointer arithmetic, specifically by adding an offset of 0x00 to the base address of the array. The resulting pointer, __begin, is then returned. This function serves as a convenient utility for accessing the starting point of the dynamic array within the vector, allowing users to easily iterate through or manipulate the array elements from the beginning.
+	The `begin_v` function provides a simple and direct means to obtain a pointer to the beginning of the data array within a t_vector structure. Given a t_vector instance as an argument, the function calculates the starting address of the data array using pointer arithmetic, specifically by adding an offset of 0x00 to the base address of the array. The resulting pointer, begin, is then returned. This function serves as a convenient utility for accessing the starting point of the dynamic array within the vector, allowing users to easily iterate through or manipulate the array elements from the beginning.
 
 	---
 
-- __end_v
+- end_v
 
 	```c
-	void		**__end_v(t_vector *vector);
+	void		**end_v(t_vector *vector);
 	```
 
-	The `__end_v` function aims to provide a pointer to the end of the data array within a t_vector structure. It achieves this by calculating the end point using pointer arithmetic. The function sets __end to the sum of the base address of the data array (vector->vector) and the size of the vector obtained through the __size_v function. Consequently, the pointer __end points to the location immediately after the last valid element in the array which is NULL.
+	The `end_v` function aims to provide a pointer to the end of the data array within a t_vector structure. It achieves this by calculating the end point using pointer arithmetic. The function sets end to the sum of the base address of the data array (vector->vector) and the size of the vector obtained through the size_v function. Consequently, the pointer end points to the location immediately after the last valid element in the array which is NULL.
 
 	---
 
-- __get_v
+- get_v
 
 	```c
-	void		*__get_v(t_vector *vector, size_t index);
+	void		*get_v(t_vector *vector, size_t index);
 	```
-	The `__get_v` function is designed to retrieve the value stored at a specified index within the dynamic array of a t_vector structure. It performs a boundary check to ensure that the provided index is within the valid range of the vector's size. If the index is out of bounds, the function returns a null pointer ((void *)0x00). Otherwise, it retrieves the value at the specified index from the vector's data array and returns it.
+	The `get_v` function is designed to retrieve the value stored at a specified index within the dynamic array of a t_vector structure. It performs a boundary check to ensure that the provided index is within the valid range of the vector's size. If the index is out of bounds, the function returns a null pointer ((void *)0x00). Otherwise, it retrieves the value at the specified index from the vector's data array and returns it.
 
 	---
 
-- __front_v
+- front_v
 
 	```c
-	void		*__front_v(t_vector *vector);
+	void		*front_v(t_vector *vector);
 	```
 
-	The __front_v function is designed to retrieve the value stored at the front (first element) of the dynamic array within a t_vector structure. It checks whether the vector is empty using the __empty_v function. If the vector is not empty, the function returns a pointer to the value at the first index of the vector's data array. If the vector is empty, the function returns a null pointer ((void *)0x00).
+	The front_v function is designed to retrieve the value stored at the front (first element) of the dynamic array within a t_vector structure. It checks whether the vector is empty using the empty_v function. If the vector is not empty, the function returns a pointer to the value at the first index of the vector's data array. If the vector is empty, the function returns a null pointer ((void *)0x00).
 
 	---
 
-- __back_v
+- back_v
 
 	```c
-	void		*__back_v(t_vector *vector);
+	void		*back_v(t_vector *vector);
 	```
-	The `__back_v` function in the t_vector context serves to return a pointer to the last element of the dynamically-sized array represented by the t_vector structure. It comprehensively checks whether the vector contains any elements through the __empty_v check and, if not empty, accesses the last element by its current size minus one. If the vector is found to be empty, the function safely returns a NULL pointer. This utility function is particularly useful for implementing stack-like behavior, or when simply retrieving the most recently added element is required without altering the state of the vector.
+	The `back_v` function in the t_vector context serves to return a pointer to the last element of the dynamically-sized array represented by the t_vector structure. It comprehensively checks whether the vector contains any elements through the empty_v check and, if not empty, accesses the last element by its current size minus one. If the vector is found to be empty, the function safely returns a NULL pointer. This utility function is particularly useful for implementing stack-like behavior, or when simply retrieving the most recently added element is required without altering the state of the vector.
 
 	---
 
-- __free_v
+- free_v
 
 	```c
-	void		__free_v(t_vector *vector);
+	void		free_v(t_vector *vector);
 	```
-	The `__free_v` function is designed to release the memory allocated for a dynamic array managed by the t_vector structure. This function first invokes the __clear_v function to clear any resources held by the elements within the dynamic array. Subsequently, it frees the memory allocated for the array itself using free(vector->vector). Finally, it deallocates the memory reserved for the t_vector structure by calling free(vector). The purpose of this function is to ensure proper cleanup and prevent memory leaks associated with the dynamic array, providing a convenient and comprehensive way to release all resources associated with the t_vector structure.
+	The `free_v` function is designed to release the memory allocated for a dynamic array managed by the t_vector structure. This function first invokes the clear_v function to clear any resources held by the elements within the dynamic array. Subsequently, it frees the memory allocated for the array itself using free(vector->vector). Finally, it deallocates the memory reserved for the t_vector structure by calling free(vector). The purpose of this function is to ensure proper cleanup and prevent memory leaks associated with the dynamic array, providing a convenient and comprehensive way to release all resources associated with the t_vector structure.
 
 	---
 
-- __clear_v
+- clear_v
 
 	```c
-	int			__clear_v(t_vector *vector);
+	int			clear_v(t_vector *vector);
 	```
-	The `__clear_v` function is responsible for removing all elements from the dynamic array managed by the t_vector structure. It utilizes a loop that repeatedly invokes the __pop_v function until the array becomes empty. The loop condition is checked using the __empty_v function, which returns true if the dynamic array is empty. The function returns 1 (true) if the array is initially empty, indicating that no elements needed to be cleared. Otherwise, it returns 0 (false) after successfully clearing all elements from the dynamic array.
+	The `clear_v` function is responsible for removing all elements from the dynamic array managed by the t_vector structure. It utilizes a loop that repeatedly invokes the pop_v function until the array becomes empty. The loop condition is checked using the empty_v function, which returns true if the dynamic array is empty. The function returns 1 (true) if the array is initially empty, indicating that no elements needed to be cleared. Otherwise, it returns 0 (false) after successfully clearing all elements from the dynamic array.
 
 	---
 
-- __pop_v
+- pop_v
 
 	```c
-	int			__pop_v(t_vector *vector);
+	int			pop_v(t_vector *vector);
 	```
-	The `__pop_v` function is designed to remove the last element from the dynamic array managed by the t_vector structure. It first calculates the index of the last element using the variable __last, which is equal to the current size of the array minus one. The function then checks if the array is not empty using the __empty_v function. If the array is not empty, it frees the memory allocated for the last element using free(vector->vector[__last]), sets the corresponding element in the array to (void *)0x0 to indicate that it is now unused, and decrements the size of the array. The function returns 0 to signify a successful removal of the element.
+	The `pop_v` function is designed to remove the last element from the dynamic array managed by the t_vector structure. It first calculates the index of the last element using the variable last, which is equal to the current size of the array minus one. The function then checks if the array is not empty using the empty_v function. If the array is not empty, it frees the memory allocated for the last element using free(vector->vector[last]), sets the corresponding element in the array to (void *)0x0 to indicate that it is now unused, and decrements the size of the array. The function returns 0 to signify a successful removal of the element.
 
 	---
 
-- __empty_v
+- empty_v
 
 	```c
-	int			__empty_v(t_vector *vector);
+	int			empty_v(t_vector *vector);
 	```
-	The `__empty_v` function is a simple utility function designed to check whether the dynamic array managed by the t_vector structure is empty. It does so by evaluating the condition !vector->size, which returns true (1) if the size of the array is zero, indicating that it contains no elements. Otherwise, it returns false (0), signifying that the array has one or more elements.
+	The `empty_v` function is a simple utility function designed to check whether the dynamic array managed by the t_vector structure is empty. It does so by evaluating the condition !vector->size, which returns true (1) if the size of the array is zero, indicating that it contains no elements. Otherwise, it returns false (0), signifying that the array has one or more elements.
 
 	---
 
-- __push_v
+- push_v
 
 	```c
-	int			__push_v(t_vector **vector, void *value, size_t size);
+	int			push_v(t_vector **vector, void *value, size_t size);
 	```
-	The `__push_v` function is designed to add a new element to the dynamic array managed by the t_vector structure. It takes a pointer to the original vector (*vector), the value to be added (value), and the size of each element in the array (size). The function first allocates memory for a temporary vector __v using malloc, which will be used to store the updated array. If the allocation fails, the function returns 1 to indicate an error.
+	The `push_v` function is designed to add a new element to the dynamic array managed by the t_vector structure. It takes a pointer to the original vector (*vector), the value to be added (value), and the size of each element in the array (size). The function first allocates memory for a temporary vector v using malloc, which will be used to store the updated array. If the allocation fails, the function returns 1 to indicate an error.
 	<br />
-	Next, it checks if the existing vector is at capacity. If so, it doubles the capacity of the temporary vector (__v) and allocates memory for the updated array. It then copies the elements from the original vector to the new vector using the __copy_v function, which ensures that the contents are preserved. If the copying process fails, the function frees the memory associated with the original vector and returns an error.
-	- __copy_v
+	Next, it checks if the existing vector is at capacity. If so, it doubles the capacity of the temporary vector (v) and allocates memory for the updated array. It then copies the elements from the original vector to the new vector using the copy_v function, which ensures that the contents are preserved. If the copying process fails, the function frees the memory associated with the original vector and returns an error.
+	- copy_v
 		```c
-		static int	__copy_v(t_vector *old_vector, t_vector *new_vector, size_t size)
+		static int	copy_v(t_vector *old_vector, t_vector *new_vector, size_t size)
 		{
 			size_t	i;
 
 			i = 0;
-			while (i < __size_v(old_vector))
+			while (i < size_v(old_vector))
 			{
 				new_vector->vector[i] = (void *)malloc(size);
 				if (!new_vector->vector[i])
@@ -147,21 +147,21 @@ Like in vectors I have implemented some Functions that would make your life easi
 
 	---
 
-- __size_t
+- size_t
 
 	```c
-	size_t		__size_v(t_vector *vector);
+	size_t		size_v(t_vector *vector);
 	```
-	The `__size_v` function is a simple utility function that returns the current size (number of elements) of the dynamic array managed by the t_vector structure. It directly retrieves the size attribute from the vector parameter and returns this value.
+	The `size_v` function is a simple utility function that returns the current size (number of elements) of the dynamic array managed by the t_vector structure. It directly retrieves the size attribute from the vector parameter and returns this value.
 
 	---
 
-- __capacity_v
+- capacity_v
 
 	```c
-	size_t		__capacity_v(t_vector *vector);
+	size_t		capacity_v(t_vector *vector);
 	```
-	The `__capacity_v` function is a straightforward utility function that returns the current capacity of the dynamic array managed by the t_vector structure. It directly retrieves the capacity attribute from the vector parameter and returns this value.
+	The `capacity_v` function is a straightforward utility function that returns the current capacity of the dynamic array managed by the t_vector structure. It directly retrieves the capacity attribute from the vector parameter and returns this value.
 
 ---
 
@@ -183,7 +183,8 @@ gcc -Wall -Wextra -Werror <source> cvector.a -o <output>
 This main function serves as an illustrative example of utilizing the dynamic array management functionalities provided by the "_cvector.h" header. In this demonstration, a dynamic array, known as a vector, is employed to store and manipulate three instances of the t_struct structure, each comprising integer, float, and string members. The code showcases the sequence of operations involved in dynamic array usage, including memory allocation, element insertion, iteration, and proper memory deallocation. By examining this example, users can gain insights into leveraging the "_cvector.h" functions for efficient and clean handling of dynamic arrays in C, facilitating tasks such as storage, retrieval, and cleanup of variable-sized data structures.
 
 ```c
-#include "__cvector_.h"
+#include "./includes/cvector_v.h"
+#include <stdio.h>
 
 typedef struct s_test
 {
@@ -211,22 +212,22 @@ int main(void)
     third_element->__char_pointer = "Hello From The Third Struct";
 
     // Create a dynamic array (vector) using __create_v
-    t_vector *vector = __create_v();
+    t_vector *vector = create_v();
 
     // Check if vector creation was successful
     if (!vector)
         return (EXIT_FAILURE);
 
     // Push the three t_struct elements into the vector
-    __push_v(&vector, (void *)first_element, sizeof(t_struct));
-    __push_v(&vector, (void *)second_element, sizeof(t_struct));
-    __push_v(&vector, (void *)third_element, sizeof(t_struct));
+    push_v(&vector, (void *)first_element, sizeof(t_struct));
+    push_v(&vector, (void *)second_element, sizeof(t_struct));
+    push_v(&vector, (void *)third_element, sizeof(t_struct));
 
     // Get the beginning iterator of the vector
-    void **begin = __begin_v(vector);
+    void **begin = begin_v(vector);
 
     // Iterate through each t_struct element in the vector and print its members
-    while (*begin != *__end_v(vector))
+    while (*begin != *end_v(vector))
     {
         printf("Int: %d\n", ((t_struct *)*begin)->__int);
         printf("Float: %f\n", ((t_struct *)*begin)->__float);
@@ -235,7 +236,7 @@ int main(void)
     }
 
     // Free the memory associated with the vector using __free_v
-    __free_v(vector);
+    free_v(vector);
 
     return (EXIT_SUCCESS);
 }

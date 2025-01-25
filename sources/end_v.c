@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   end_v.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amait-ou <amait-ou@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: amait-ou <amait-ou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 18:28:04 by amait-ou          #+#    #+#             */
-/*   Updated: 2024/01/07 18:33:00 by amait-ou         ###   ########.fr       */
+/*   Updated: 2025/01/25 11:00:50 by amait-ou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cvector_v.h"
 
-void	**__end_v(t_vector *vector)
+void	**end_v(t_vector *vector)
 {
-	void	**__end;
+	void	**end;
 
-	__end = vector->vector + __size_v(vector);
-	return (__end);
+	end = vector->vector + size_v(vector);
+	return (end);
 }
